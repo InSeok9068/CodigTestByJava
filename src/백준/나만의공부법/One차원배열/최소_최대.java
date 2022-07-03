@@ -1,4 +1,4 @@
-package 백준.One차원배열;
+package 백준.나만의공부법.One차원배열;
 
 // 문제
 // N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프로그램을 작성하시오.
@@ -15,7 +15,8 @@ package 백준.One차원배열;
 // 예제 출력 1
 // 7 35
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class 최소_최대 {
     public static void main(String[] args) {
