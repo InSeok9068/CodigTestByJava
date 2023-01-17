@@ -10,6 +10,10 @@ public class Main {
 //        sb.append(integer).append(" ");
 //    });
 
+//    스택 : LIFO (늦게 들어간 데이터가 먼저 나옴) 예시) 브라우저의 뒤로가기
+//    큐 : FIFO (먼저 들어간 데이터가 먼저 나옴) 예시) 순서대로 주문 받기
+
     public static void main(String[] args) {
+
     }
 }
