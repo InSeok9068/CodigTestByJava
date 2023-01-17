@@ -1,4 +1,4 @@
-package 예시코드;
+package 예시코드.ChatGPT;
 
 public class 이진트리 {
     public static void main(String[] args) {

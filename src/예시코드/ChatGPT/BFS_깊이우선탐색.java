@@ -1,4 +1,4 @@
-package 예시코드;
+package 예시코드.ChatGPT;
 
 import java.util.Iterator;
 import java.util.LinkedList;
