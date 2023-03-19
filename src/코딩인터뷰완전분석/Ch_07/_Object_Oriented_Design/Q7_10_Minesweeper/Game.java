@@ -3,16 +3,11 @@ package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_10_Mineswee
 import java.util.Scanner;
 
 public class Game {
-    public enum GameState {
-        WON, LOST, RUNNING
-    }
-
-    private Board board;
     private final int rows;
     private final int columns;
     private final int bombs;
+    private Board board;
     private GameState state;
-
     public Game(int r, int c, int b) {
         rows = r;
         columns = c;
@@ -77,6 +72,10 @@ public class Game {
         }
         scanner.close();
         return true;
+    }
+
+    public enum GameState {
+        WON, LOST, RUNNING
     }
 
 

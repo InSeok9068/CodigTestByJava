@@ -9,23 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QuestionC {
-    public static class Element implements Comparable<Element> {
-        public int word;
-        public int document;
-
-        public Element(int w, int d) {
-            word = w;
-            document = d;
-        }
-
-        public int compareTo(Element e) {
-            if (word == e.word) {
-                return document - e.document;
-            }
-            return word - e.word;
-        }
-    }
-
     public static HashMap<DocPair, Double> computeSimilarities(HashMap<Integer, Document> documents) {
         ArrayList<Element> elements = sortWords(documents);
         HashMap<DocPair, Double> similarities = computeIntersections(elements);
@@ -100,6 +83,23 @@ public class QuestionC {
 
         HashMap<DocPair, Double> similarities = computeSimilarities(documents);
         Tester.printSim(similarities);
+    }
+
+    public static class Element implements Comparable<Element> {
+        public int word;
+        public int document;
+
+        public Element(int w, int d) {
+            word = w;
+            document = d;
+        }
+
+        public int compareTo(Element e) {
+            if (word == e.word) {
+                return document - e.document;
+            }
+            return word - e.word;
+        }
     }
 
 }

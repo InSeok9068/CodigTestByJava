@@ -1,13 +1,12 @@
 package Q7_01_Deck_of_Cards;
 
 public abstract class Card {
-    private boolean available = true;
-
     /* number or face that's on card - a number 2 through 10,
      * or 11 for Jack, 12 for Queen, 13 for King, or 1 for Ace
      */
     protected int faceValue;
     protected Q7_01_Deck_of_Cards.Suit suit;
+    private boolean available = true;
 
     public Card(int c, Q7_01_Deck_of_Cards.Suit s) {
         faceValue = c;

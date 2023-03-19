@@ -8,12 +8,6 @@ import java.util.PriorityQueue;
 
 public class QuestionB {
 
-    public static class MaxHeapComparator implements Comparator<Integer> {
-        public int compare(Integer x, Integer y) {
-            return y - x;
-        }
-    }
-
     public static int[] smallestK(int[] array, int k) {
         if (k <= 0 || k > array.length) {
             throw new IllegalArgumentException();
@@ -50,6 +44,12 @@ public class QuestionB {
         int[] array = {1, 5, 2, 9, -1, 11, 6, 13, 15};
         int[] smallest = smallestK(array, 3);
         System.out.println(AssortedMethods.arrayToString(smallest));
+    }
+
+    public static class MaxHeapComparator implements Comparator<Integer> {
+        public int compare(Integer x, Integer y) {
+            return y - x;
+        }
     }
 
 }

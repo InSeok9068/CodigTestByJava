@@ -3,9 +3,9 @@ package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_01_Deck_of_
 import java.util.ArrayList;
 
 public class BlackJackGameAutomator {
-    private Deck<Q7_01_Deck_of_Cards.BlackJackCard> deck;
-    private final Q7_01_Deck_of_Cards.BlackJackHand[] hands;
     private static final int HIT_UNTIL = 16;
+    private final Q7_01_Deck_of_Cards.BlackJackHand[] hands;
+    private Deck<Q7_01_Deck_of_Cards.BlackJackCard> deck;
 
     public BlackJackGameAutomator(int numPlayers) {
         hands = new Q7_01_Deck_of_Cards.BlackJackHand[numPlayers];

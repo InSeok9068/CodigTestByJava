@@ -17,17 +17,17 @@ public class Line {
         }
     }
 
+    public static double floorToNearestEpsilon(double d) {
+        int r = (int) (d / epsilon);
+        return ((double) r) * epsilon;
+    }
+
     public boolean isEquivalent(double a, double b) {
         return (Math.abs(a - b) < epsilon);
     }
 
     public void Print() {
         System.out.println("y = " + slope + "x + " + intercept);
-    }
-
-    public static double floorToNearestEpsilon(double d) {
-        int r = (int) (d / epsilon);
-        return ((double) r) * epsilon;
     }
 
     public boolean isEquivalent(Object o) {

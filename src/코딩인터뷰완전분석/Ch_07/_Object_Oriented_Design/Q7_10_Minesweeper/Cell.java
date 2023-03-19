@@ -20,11 +20,6 @@ public class Cell {
         column = c;
     }
 
-    public void setBomb(boolean bomb) {
-        isBomb = bomb;
-        number = -1;
-    }
-
     public void incrementNumber() {
         number++;
     }
@@ -39,6 +34,11 @@ public class Cell {
 
     public boolean isBomb() {
         return isBomb;
+    }
+
+    public void setBomb(boolean bomb) {
+        isBomb = bomb;
+        number = -1;
     }
 
     public boolean isBlank() {

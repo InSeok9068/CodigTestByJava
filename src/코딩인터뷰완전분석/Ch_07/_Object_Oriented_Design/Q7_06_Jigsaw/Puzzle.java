@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class Puzzle {
     private final LinkedList<Piece> pieces; /* Remaining pieces left to put away. */
-    private Piece[][] solution;
     private final int size;
+    private Piece[][] solution;
 
     public Puzzle(int size, LinkedList<Piece> pieces) {
         this.pieces = pieces;

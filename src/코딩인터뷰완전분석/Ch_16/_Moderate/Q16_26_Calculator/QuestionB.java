@@ -3,10 +3,6 @@ package 코딩인터뷰완전분석.Ch_16._Moderate.Q16_26_Calculator;
 import java.util.Stack;
 
 public class QuestionB {
-    public enum Operator {
-        ADD, SUBTRACT, MULTIPLY, DIVIDE, BLANK
-    }
-
     /* Return the operator that occurs as offset. */
     public static Operator parseNextOperator(String sequence, int offset) {
         if (offset < sequence.length()) {
@@ -123,6 +119,10 @@ public class QuestionB {
         String expression = "6/5*3+4*5/2-12/6*3/3+3+3";
         double result = compute(expression);
         System.out.println(result);
+    }
+
+    public enum Operator {
+        ADD, SUBTRACT, MULTIPLY, DIVIDE, BLANK
     }
 
 }

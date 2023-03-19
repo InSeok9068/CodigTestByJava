@@ -1,9 +1,9 @@
 package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_08_Othello;
 
 public class Board {
+    private final Piece[][] board;
     private int blackCount = 0;
     private int whiteCount = 0;
-    private final Piece[][] board;
 
     public Board(int rows, int columns) {
         board = new Piece[rows][columns];

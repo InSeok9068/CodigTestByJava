@@ -6,12 +6,10 @@ import java.util.concurrent.locks.Lock;
 
 public class LockFactory {
     private static LockFactory instance;
-
-    private int numberOfLocks = 5; /* default */
     private final LockNode[] locks;
-
     /* Maps from a process or owner to the order that the owner claimed it would call the locks in */
     private final HashMap<Integer, LinkedList<LockNode>> lockOrder;
+    private int numberOfLocks = 5; /* default */
 
     private LockFactory(int count) {
         numberOfLocks = count;

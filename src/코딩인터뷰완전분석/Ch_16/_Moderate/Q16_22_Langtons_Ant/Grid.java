@@ -1,8 +1,8 @@
 package 코딩인터뷰완전분석.Ch_16._Moderate.Q16_22_Langtons_Ant;
 
 public class Grid {
-    private boolean[][] grid; // false is white, true is black
     private final Ant ant = new Ant();
+    private boolean[][] grid; // false is white, true is black
 
     public Grid() {
         grid = new boolean[1][1];

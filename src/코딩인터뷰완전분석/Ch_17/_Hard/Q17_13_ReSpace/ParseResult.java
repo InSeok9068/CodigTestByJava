@@ -9,10 +9,6 @@ public class ParseResult {
         parsed = p;
     }
 
-    public ParseResult clone() {
-        return new ParseResult(this.invalid, this.parsed);
-    }
-
     public static ParseResult min(ParseResult r1, ParseResult r2) {
         if (r1 == null) {
             return r2;
@@ -21,5 +17,9 @@ public class ParseResult {
         }
 
         return r2.invalid < r1.invalid ? r2 : r1;
+    }
+
+    public ParseResult clone() {
+        return new ParseResult(this.invalid, this.parsed);
     }
 }

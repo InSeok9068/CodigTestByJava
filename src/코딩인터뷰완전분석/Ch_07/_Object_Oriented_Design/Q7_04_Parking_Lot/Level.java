@@ -2,10 +2,10 @@ package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_
 
 /* Represents a level in a parking garage */
 public class Level {
+    private static final int SPOTS_PER_ROW = 10;
     private final int floor;
     private final ParkingSpot[] spots;
     private int availableSpots = 0; // number of free spots
-    private static final int SPOTS_PER_ROW = 10;
 
     public Level(int flr, int numberSpots) {
         floor = flr;

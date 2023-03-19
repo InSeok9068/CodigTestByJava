@@ -6,16 +6,6 @@ public class 힙정렬 {
 }
 
 class HeapSort {
-    private void solve() {
-        int[] array = {230, 10, 60, 550, 40, 220, 20};
-
-        heapSort(array);
-
-        for (int v : array) {
-            System.out.println(v);
-        }
-    }
-
     public static void heapify(int array[], int n, int i) {
         int p = i;
         int l = i * 2 + 1;
@@ -54,5 +44,15 @@ class HeapSort {
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;
+    }
+
+    private void solve() {
+        int[] array = {230, 10, 60, 550, 40, 220, 20};
+
+        heapSort(array);
+
+        for (int v : array) {
+            System.out.println(v);
+        }
     }
 }

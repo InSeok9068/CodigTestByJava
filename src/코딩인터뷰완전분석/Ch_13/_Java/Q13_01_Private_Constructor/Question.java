@@ -5,6 +5,10 @@ public class Question {
         System.out.println("Q");
     }
 
+    public static void main(String[] args) {
+        new B();
+    }
+
     static class A {
         private A() {
         }
@@ -13,10 +17,6 @@ public class Question {
     static class B extends A {
         public B() {
         }
-    }
-
-    public static void main(String[] args) {
-        new B();
     }
 
 }

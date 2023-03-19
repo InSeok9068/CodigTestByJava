@@ -4,12 +4,10 @@ package Q7_02_Call_Center;
  * first employee who can handle that call.
  */
 public class Call {
-    /* Minimal rank of employee who can handle this call. */
-    private Q7_02_Call_Center.Rank rank;
-
     /* Person who is calling. */
     private final Q7_02_Call_Center.Caller caller;
-
+    /* Minimal rank of employee who can handle this call. */
+    private Q7_02_Call_Center.Rank rank;
     /* Employee who is handling call. */
     private Q7_02_Call_Center.Employee handler;
 

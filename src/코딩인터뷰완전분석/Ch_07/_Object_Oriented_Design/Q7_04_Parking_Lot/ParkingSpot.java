@@ -1,11 +1,11 @@
 package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
 public class ParkingSpot {
-    private Vehicle vehicle;
     private final VehicleSize spotSize;
     private final int row;
     private final int spotNumber;
     private final Level level;
+    private Vehicle vehicle;
 
     public ParkingSpot(Level lvl, int r, int n, VehicleSize sz) {
         level = lvl;

@@ -6,15 +6,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class LockNode {
-    public enum VisitState {
-        FRESH, VISITING, VISITED
-    }
-
     private final ArrayList<LockNode> children;
     private final int lockId;
-    private Lock lock;
     private final int maxLocks;
-
+    private Lock lock;
     public LockNode(int id, int max) {
         lockId = id;
         children = new ArrayList<LockNode>();
@@ -67,5 +62,9 @@ public class LockNode {
 
     public int getId() {
         return lockId;
+    }
+
+    public enum VisitState {
+        FRESH, VISITING, VISITED
     }
 }

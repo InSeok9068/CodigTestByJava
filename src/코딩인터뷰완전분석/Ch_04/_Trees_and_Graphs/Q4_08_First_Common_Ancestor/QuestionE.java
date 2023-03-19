@@ -4,16 +4,6 @@ package 코딩인터뷰완전분석.Ch_04._Trees_and_Graphs.Q4_08_First_Common_A
 import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.TreeNode;
 
 public class QuestionE {
-    public static class Result {
-        public TreeNode node;
-        public boolean isAncestor;
-
-        public Result(TreeNode n, boolean isAnc) {
-            node = n;
-            isAncestor = isAnc;
-        }
-    }
-
     public static Result commonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return new Result(null, false);
@@ -63,6 +53,16 @@ public class QuestionE {
             System.out.println(ancestor.data);
         } else {
             System.out.println("null");
+        }
+    }
+
+    public static class Result {
+        public TreeNode node;
+        public boolean isAncestor;
+
+        public Result(TreeNode n, boolean isAnc) {
+            node = n;
+            isAncestor = isAnc;
         }
     }
 

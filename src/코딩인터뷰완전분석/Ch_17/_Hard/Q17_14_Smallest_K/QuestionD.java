@@ -6,16 +6,6 @@ import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.AssortedMethods;
 import java.util.Random;
 
 public class QuestionD {
-    public static class PartitionResult {
-        int leftSize;
-        int middleSize;
-
-        public PartitionResult(int left, int middle) {
-            this.leftSize = left;
-            this.middleSize = middle;
-        }
-    }
-
     public static int[] smallestK(int[] array, int k) {
         if (k <= 0 || k > array.length) throw new IllegalArgumentException();
 
@@ -108,5 +98,15 @@ public class QuestionD {
         int[] array = {1, 5, 2, 3, 2, 9, -1, 11, 6, 13, 15, 2};
         int[] smallest = smallestK(array, 6);
         System.out.println(AssortedMethods.arrayToString(smallest));
+    }
+
+    public static class PartitionResult {
+        int leftSize;
+        int middleSize;
+
+        public PartitionResult(int left, int middle) {
+            this.leftSize = left;
+            this.middleSize = middle;
+        }
     }
 }

@@ -4,6 +4,19 @@ public class CDPlayer {
     private Playlist p;
     private CD c;
 
+    public CDPlayer(Playlist p) {
+        this.p = p;
+    }
+
+    public CDPlayer(CD c, Playlist p) {
+        this.p = p;
+        this.c = c;
+    }
+
+    public CDPlayer(CD c) {
+        this.c = c;
+    }
+
     public Playlist getPlaylist() {
         return p;
     }
@@ -17,19 +30,6 @@ public class CDPlayer {
     }
 
     public void setCD(CD c) {
-        this.c = c;
-    }
-
-    public CDPlayer(Playlist p) {
-        this.p = p;
-    }
-
-    public CDPlayer(CD c, Playlist p) {
-        this.p = p;
-        this.c = c;
-    }
-
-    public CDPlayer(CD c) {
         this.c = c;
     }
 

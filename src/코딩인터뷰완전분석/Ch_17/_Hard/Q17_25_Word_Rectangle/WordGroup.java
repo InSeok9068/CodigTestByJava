@@ -12,27 +12,6 @@ public class WordGroup {
 
     }
 
-    public boolean containsWord(String s) {
-        return lookup.containsKey(s);
-    }
-
-    public void addWord(String s) {
-        group.add(s);
-        lookup.put(s, true);
-    }
-
-    public int length() {
-        return group.size();
-    }
-
-    public String getWord(int i) {
-        return group.get(i);
-    }
-
-    public ArrayList<String> getWords() {
-        return group;
-    }
-
     public static WordGroup[] createWordGroups(String[] list) {
         WordGroup[] groupList;
         int maxWordLength = 0;
@@ -57,5 +36,26 @@ public class WordGroup {
             groupList[wordLength].addWord(list[i]);
         }
         return groupList;
+    }
+
+    public boolean containsWord(String s) {
+        return lookup.containsKey(s);
+    }
+
+    public void addWord(String s) {
+        group.add(s);
+        lookup.put(s, true);
+    }
+
+    public int length() {
+        return group.size();
+    }
+
+    public String getWord(int i) {
+        return group.get(i);
+    }
+
+    public ArrayList<String> getWords() {
+        return group;
     }
 }

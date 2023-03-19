@@ -6,16 +6,6 @@ import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.LinkedListNode;
 
 public class Question {
 
-    public static class Result {
-        public LinkedListNode tail;
-        public int size;
-
-        public Result(LinkedListNode tail, int size) {
-            this.tail = tail;
-            this.size = size;
-        }
-    }
-
     public static Result getTailAndSize(LinkedListNode list) {
         if (list == null) return null;
 
@@ -83,6 +73,16 @@ public class Question {
         LinkedListNode intersection = findIntersection(list1, list2);
 
         System.out.println(intersection.printForward());
+    }
+
+    public static class Result {
+        public LinkedListNode tail;
+        public int size;
+
+        public Result(LinkedListNode tail, int size) {
+            this.tail = tail;
+            this.size = size;
+        }
     }
 
 }

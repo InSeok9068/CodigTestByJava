@@ -12,10 +12,6 @@ public enum Suit {
         value = v;
     }
 
-    public int getValue() {
-        return value;
-    }
-
     public static Suit getSuitFromValue(int value) {
         switch (value) {
             case 0:
@@ -29,5 +25,9 @@ public enum Suit {
             default:
                 return null;
         }
+    }
+
+    public int getValue() {
+        return value;
     }
 }

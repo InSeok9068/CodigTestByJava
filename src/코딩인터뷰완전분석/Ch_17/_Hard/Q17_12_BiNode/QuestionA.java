@@ -1,16 +1,6 @@
 package 코딩인터뷰완전분석.Ch_17._Hard.Q17_12_BiNode;
 
 public class QuestionA {
-    private static class NodePair {
-        BiNode head;
-        BiNode tail;
-
-        public NodePair(BiNode head, BiNode tail) {
-            this.head = head;
-            this.tail = tail;
-        }
-    }
-
     public static NodePair convert(BiNode root) {
         if (root == null) {
             return null;
@@ -74,6 +64,16 @@ public class QuestionA {
         printAsTree(root, "");
         NodePair n = convert(root);
         printLinkedListTree(n.head);
+    }
+
+    private static class NodePair {
+        BiNode head;
+        BiNode tail;
+
+        public NodePair(BiNode head, BiNode tail) {
+            this.head = head;
+            this.tail = tail;
+        }
     }
 
 }

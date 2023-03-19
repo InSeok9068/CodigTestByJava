@@ -5,10 +5,6 @@ import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.AssortedMethods;
 import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.LinkedListNode;
 
 public class QuestionC {
-    public static class Index {
-        public int value = 0;
-    }
-
     public static LinkedListNode kthToLast(LinkedListNode head, int k) {
         Index idx = new Index();
         return kthToLast(head, k, idx);
@@ -34,5 +30,9 @@ public class QuestionC {
             String nodeValue = node == null ? "null" : "" + node.data;
             System.out.println(i + ": " + nodeValue);
         }
+    }
+
+    public static class Index {
+        public int value = 0;
     }
 }

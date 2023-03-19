@@ -6,15 +6,14 @@ import java.util.HashMap;
 
 public class User {
     private final int id;
-    private UserStatus status = null;
     private final HashMap<Integer, PrivateChat> privateChats = new HashMap<Integer, PrivateChat>();
     private final ArrayList<GroupChat> groupChats = new ArrayList<GroupChat>();
     private final HashMap<Integer, AddRequest> receivedAddRequests = new HashMap<Integer, AddRequest>();
     private final HashMap<Integer, AddRequest> sentAddRequests = new HashMap<Integer, AddRequest>();
-
     private final HashMap<Integer, User> contacts = new HashMap<Integer, User>();
     private final String accountName;
     private final String fullName;
+    private UserStatus status = null;
 
     public User(int id, String accountName, String fullName) {
         this.accountName = accountName;
@@ -41,12 +40,12 @@ public class User {
         return false;
     }
 
-    public void setStatus(UserStatus status) {
-        this.status = status;
-    }
-
     public UserStatus getStatus() {
         return status;
+    }
+
+    public void setStatus(UserStatus status) {
+        this.status = status;
     }
 
     public boolean addContact(User user) {

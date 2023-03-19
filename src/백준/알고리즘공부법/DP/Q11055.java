@@ -1,6 +1,5 @@
 package 백준.알고리즘공부법.DP;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Q11055 {
@@ -34,7 +33,7 @@ public class Q11055 {
         }
         System.out.println(max); // 최댓값 출력
     }
-    
+
     // 이분 탐색 방법
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);

@@ -2,10 +2,6 @@ package 코딩인터뷰완전분석.Ch_08._Recursion_and_Dynamic_Programming.Q8_
 
 public class Question {
 
-    public enum Color {
-        Black, White, Red, Yellow, Green
-    }
-
     public static String PrintColor(Color c) {
         switch (c) {
             case Black:
@@ -69,6 +65,10 @@ public class Question {
         PaintFill(screen, 2, 2, Color.White);
         System.out.println();
         PrintScreen(screen);
+    }
+
+    public enum Color {
+        Black, White, Red, Yellow, Green
     }
 
 }

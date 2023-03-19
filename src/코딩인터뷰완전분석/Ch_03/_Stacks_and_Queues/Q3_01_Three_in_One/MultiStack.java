@@ -6,53 +6,8 @@ import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.AssortedMethods;
 import java.util.EmptyStackException;
 
 public class MultiStack {
-    /* StackInfo is a simple class that holds a set of data about
-     * each stack. It does not hold the actual items in the stack.
-     * We could have done this with just a bunch of individual
-     * variables, but that’s messy and doesn’t gain us much. */
-    private class StackInfo {
-        public int start, size, capacity;
-
-        public StackInfo(int start, int capacity) {
-            this.start = start;
-            this.capacity = capacity;
-        }
-
-        /* Check if an index on the full array is within the stack
-         * boundaries. The stack can wrap around to the start of
-         * the array. */
-        public boolean isWithinStackCapacity(int index) {
-            /* If outside of bounds of array, return false. */
-            if (index < 0 || index >= values.length) {
-                return false;
-            }
-
-            /* If index wraps around, adjust it. */
-            int contiguousIndex = index < start ? index + values.length : index;
-            int end = start + capacity;
-            return start <= contiguousIndex && contiguousIndex < end;
-        }
-
-        public int lastCapacityIndex() {
-            return adjustIndex(start + capacity - 1);
-        }
-
-        public int lastElementIndex() {
-            return adjustIndex(start + size - 1);
-        }
-
-        public boolean isFull() {
-            return size == capacity;
-        }
-
-        public boolean isEmpty() {
-            return size == 0;
-        }
-    }
-
     private final StackInfo[] info;
     private final int[] values;
-
     public MultiStack(int numberOfStacks, int defaultSize) {
         /* Create metadata for all the stacks. */
         info = new StackInfo[numberOfStacks];
@@ -191,5 +146,49 @@ public class MultiStack {
     public String stackToString(int stackNum) {
         int[] items = getStackValues(stackNum);
         return stackNum + ": " + AssortedMethods.arrayToString(items);
+    }
+
+    /* StackInfo is a simple class that holds a set of data about
+     * each stack. It does not hold the actual items in the stack.
+     * We could have done this with just a bunch of individual
+     * variables, but that’s messy and doesn’t gain us much. */
+    private class StackInfo {
+        public int start, size, capacity;
+
+        public StackInfo(int start, int capacity) {
+            this.start = start;
+            this.capacity = capacity;
+        }
+
+        /* Check if an index on the full array is within the stack
+         * boundaries. The stack can wrap around to the start of
+         * the array. */
+        public boolean isWithinStackCapacity(int index) {
+            /* If outside of bounds of array, return false. */
+            if (index < 0 || index >= values.length) {
+                return false;
+            }
+
+            /* If index wraps around, adjust it. */
+            int contiguousIndex = index < start ? index + values.length : index;
+            int end = start + capacity;
+            return start <= contiguousIndex && contiguousIndex < end;
+        }
+
+        public int lastCapacityIndex() {
+            return adjustIndex(start + capacity - 1);
+        }
+
+        public int lastElementIndex() {
+            return adjustIndex(start + size - 1);
+        }
+
+        public boolean isFull() {
+            return size == capacity;
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
     }
 }

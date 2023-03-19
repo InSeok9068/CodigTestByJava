@@ -4,9 +4,9 @@ package Q7_02_Call_Center;
  * abstract class, since there should be no reason to instantiated an Employee type directly.
  */
 abstract class Employee {
-    private Q7_02_Call_Center.Call currentCall = null;
-    protected Q7_02_Call_Center.Rank rank;
     private final Q7_02_Call_Center.CallHandler callHandler;
+    protected Q7_02_Call_Center.Rank rank;
+    private Q7_02_Call_Center.Call currentCall = null;
 
     public Employee(Q7_02_Call_Center.CallHandler handler) {
         callHandler = handler;

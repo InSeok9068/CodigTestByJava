@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class NameSet {
     private final Set<String> names = new HashSet<String>();
-    private int frequency = 0;
     private final String rootName;
+    private int frequency = 0;
 
     public NameSet(String name, int freq) {
         names.add(name);

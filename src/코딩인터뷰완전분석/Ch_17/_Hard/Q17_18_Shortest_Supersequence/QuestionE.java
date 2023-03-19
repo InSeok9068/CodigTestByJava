@@ -3,45 +3,6 @@ package 코딩인터뷰완전분석.Ch_17._Hard.Q17_18_Shortest_Supersequence;
 import java.util.HashMap;
 
 public class QuestionE {
-    /* CountedLookup acts a simple hash table with increment/decrement functions
-     * which can efficiently tell you how many values in the hash table are
-     * at least one.
-     */
-    public static class CountedLookup {
-        HashMap<Integer, Integer> lookup = new HashMap<Integer, Integer>();
-        int fulfilled = 0;
-
-        public CountedLookup(int[] array) {
-            for (int a : array) {
-                lookup.put(a, 0);
-            }
-        }
-
-        public boolean contains(int v) {
-            return lookup.containsKey(v);
-        }
-
-        public void incrementIfFound(int v) {
-            if (!contains(v)) return;
-            if (lookup.getOrDefault(v, 0) == 0) {
-                fulfilled += 1;
-            }
-            lookup.put(v, lookup.getOrDefault(v, 0) + 1);
-        }
-
-        public void decrementIfFound(int v) {
-            if (!contains(v)) return;
-            lookup.put(v, lookup.getOrDefault(v, 0) - 1);
-            if (lookup.getOrDefault(v, 0) == 0) {
-                fulfilled -= 1;
-            }
-        }
-
-        public boolean areAllFulfilled() {
-            return fulfilled == lookup.keySet().size();
-        }
-    }
-
     /* Find shortest subarray which contains all elements from small. */
     public static Range shortestSupersequence(int[] big, int[] small) {
         if (big.length < small.length) return null;
@@ -89,6 +50,45 @@ public class QuestionE {
             for (int i = shortest.getStart(); i <= shortest.getEnd(); i++) {
                 System.out.print(array[i] + ", ");
             }
+        }
+    }
+
+    /* CountedLookup acts a simple hash table with increment/decrement functions
+     * which can efficiently tell you how many values in the hash table are
+     * at least one.
+     */
+    public static class CountedLookup {
+        HashMap<Integer, Integer> lookup = new HashMap<Integer, Integer>();
+        int fulfilled = 0;
+
+        public CountedLookup(int[] array) {
+            for (int a : array) {
+                lookup.put(a, 0);
+            }
+        }
+
+        public boolean contains(int v) {
+            return lookup.containsKey(v);
+        }
+
+        public void incrementIfFound(int v) {
+            if (!contains(v)) return;
+            if (lookup.getOrDefault(v, 0) == 0) {
+                fulfilled += 1;
+            }
+            lookup.put(v, lookup.getOrDefault(v, 0) + 1);
+        }
+
+        public void decrementIfFound(int v) {
+            if (!contains(v)) return;
+            lookup.put(v, lookup.getOrDefault(v, 0) - 1);
+            if (lookup.getOrDefault(v, 0) == 0) {
+                fulfilled -= 1;
+            }
+        }
+
+        public boolean areAllFulfilled() {
+            return fulfilled == lookup.keySet().size();
         }
     }
 

@@ -7,14 +7,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class QuestionString {
-    private final Map<String, Byte> tagMap;
     private static final Byte[] END = {0, 1};
-
+    private final Map<String, Byte> tagMap;
     private ArrayList<String> tokens;
     private int currentTokenIndex;
 
     public QuestionString(Map<String, Byte> tagMap) {
         this.tagMap = tagMap;
+    }
+
+    public static void main(String[] args) {
+        try {
+            Map<String, Byte> tagMap = new HashMap<String, Byte>();
+            tagMap.put("a", (byte) 10);
+            tagMap.put("root", (byte) 11);
+            tagMap.put("href", (byte) 20);
+            tagMap.put("target", (byte) 21);
+            tagMap.put("name", (byte) 50);
+            tagMap.put("id", (byte) 51);
+
+            QuestionString encoder = new QuestionString(tagMap);
+            String input;
+            byte[] output;
+
+            input = "<root></root>";
+            output = encoder.encode(input.toCharArray());
+            print(output);
+
+            input = "<root id=a />";
+            output = encoder.encode(input.toCharArray());
+            print(output);
+
+            input = "<root><a href=abc id=xyz></a><a></a></root>";
+            output = encoder.encode(input.toCharArray());
+            print(output);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public static void print(byte[] output) {
+        for (byte b : output) {
+            System.out.print(b);
+            System.out.print(" ");
+        }
+        System.out.println();
     }
 
     public byte[] encode(char[] input) throws IOException {
@@ -163,43 +200,5 @@ public class QuestionString {
             throw new IOException("Unknown tag: " + tag);
         }
         return tagCode;
-    }
-
-    public static void main(String[] args) {
-        try {
-            Map<String, Byte> tagMap = new HashMap<String, Byte>();
-            tagMap.put("a", (byte) 10);
-            tagMap.put("root", (byte) 11);
-            tagMap.put("href", (byte) 20);
-            tagMap.put("target", (byte) 21);
-            tagMap.put("name", (byte) 50);
-            tagMap.put("id", (byte) 51);
-
-            QuestionString encoder = new QuestionString(tagMap);
-            String input;
-            byte[] output;
-
-            input = "<root></root>";
-            output = encoder.encode(input.toCharArray());
-            print(output);
-
-            input = "<root id=a />";
-            output = encoder.encode(input.toCharArray());
-            print(output);
-
-            input = "<root><a href=abc id=xyz></a><a></a></root>";
-            output = encoder.encode(input.toCharArray());
-            print(output);
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }
-
-    public static void print(byte[] output) {
-        for (byte b : output) {
-            System.out.print(b);
-            System.out.print(" ");
-        }
-        System.out.println();
     }
 }

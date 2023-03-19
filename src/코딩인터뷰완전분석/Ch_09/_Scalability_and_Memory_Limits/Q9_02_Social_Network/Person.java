@@ -7,6 +7,10 @@ public class Person {
     private final int personID;
     private String info;
 
+    public Person(int id) {
+        this.personID = id;
+    }
+
     public String getInfo() {
         return info;
     }
@@ -25,9 +29,5 @@ public class Person {
 
     public void addFriend(int id) {
         friends.add(id);
-    }
-
-    public Person(int id) {
-        this.personID = id;
     }
 }

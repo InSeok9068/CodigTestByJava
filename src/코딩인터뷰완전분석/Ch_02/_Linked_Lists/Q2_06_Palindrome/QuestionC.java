@@ -4,16 +4,6 @@ package 코딩인터뷰완전분석.Ch_02._Linked_Lists.Q2_06_Palindrome;
 import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.LinkedListNode;
 
 public class QuestionC {
-    public static class Result {
-        public LinkedListNode node;
-        public boolean result;
-
-        public Result(LinkedListNode n, boolean res) {
-            node = n;
-            result = res;
-        }
-    }
-
     public static Result isPalindromeRecurse(LinkedListNode head, int length) {
         if (head == null || length <= 0) { // Even number of nodes
             return new Result(head, true);
@@ -74,6 +64,16 @@ public class QuestionC {
         LinkedListNode head = nodes[0];
         System.out.println(head.printForward());
         System.out.println(isPalindrome(head));
+    }
+
+    public static class Result {
+        public LinkedListNode node;
+        public boolean result;
+
+        public Result(LinkedListNode n, boolean res) {
+            node = n;
+            result = res;
+        }
     }
 
 }

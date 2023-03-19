@@ -24,14 +24,14 @@ public class Edge {
         return edge.getCode().equals(getCode());
     }
 
-    /* Set parent piece. */
-    public void setParentPiece(Piece parentPiece) {
-        this.parentPiece = parentPiece;
-    }
-
     /* Get the parent piece. */
     public Piece getParentPiece() {
         return parentPiece;
+    }
+
+    /* Set parent piece. */
+    public void setParentPiece(Piece parentPiece) {
+        this.parentPiece = parentPiece;
     }
 
     /* Return the shape of the edge. */

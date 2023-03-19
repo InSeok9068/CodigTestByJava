@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Project {
-    public enum State {COMPLETE, PARTIAL, BLANK}
-
     private final ArrayList<Project> children = new ArrayList<Project>();
     private final HashMap<String, Project> map = new HashMap<String, Project>();
     private final String name;
     private State state = State.BLANK;
-
     public Project(String n) {
         name = n;
     }
@@ -37,4 +34,6 @@ public class Project {
     public ArrayList<Project> getChildren() {
         return children;
     }
+
+    public enum State {COMPLETE, PARTIAL, BLANK}
 }

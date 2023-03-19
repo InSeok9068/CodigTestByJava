@@ -6,29 +6,6 @@ import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.AssortedMethods;
 import java.util.ArrayList;
 
 public class QuestionG {
-    public static class Check {
-        public int row, column;
-        private final int rowIncrement;
-        private final int columnIncrement;
-
-        public Check(int row, int column, int rowI, int colI) {
-            this.row = row;
-            this.column = column;
-            this.rowIncrement = rowI;
-            this.columnIncrement = colI;
-        }
-
-        public void increment() {
-            row += rowIncrement;
-            column += columnIncrement;
-        }
-
-        public boolean inBounds(int size) {
-            return row >= 0 && column >= 0 &&
-                    row < size && column < size;
-        }
-    }
-
     public static Piece hasWon(Piece[][] board) {
         if (board.length != board[0].length) return Piece.Empty;
         int size = board.length;
@@ -78,6 +55,29 @@ public class QuestionG {
 
         System.out.println(p1);
         AssortedMethods.printMatrix(board_t);
+    }
+
+    public static class Check {
+        private final int rowIncrement;
+        private final int columnIncrement;
+        public int row, column;
+
+        public Check(int row, int column, int rowI, int colI) {
+            this.row = row;
+            this.column = column;
+            this.rowIncrement = rowI;
+            this.columnIncrement = colI;
+        }
+
+        public void increment() {
+            row += rowIncrement;
+            column += columnIncrement;
+        }
+
+        public boolean inBounds(int size) {
+            return row >= 0 && column >= 0 &&
+                    row < size && column < size;
+        }
     }
 
 }

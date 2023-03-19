@@ -4,9 +4,9 @@ import java.util.Set;
 
 public class JukeBox {
     private final CDPlayer cdPlayer;
-    private User user;
     private final Set<CD> cdCollection;
     private final SongSelector ts;
+    private User user;
 
     public JukeBox(CDPlayer cdPlayer, User user, Set<CD> cdCollection,
                    SongSelector ts) {

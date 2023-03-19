@@ -8,16 +8,6 @@ public class 병합정렬 {
 }
 
 class MergeSort {
-    private void solve() {
-        int[] array = {230, 10, 60, 550, 40, 220, 20};
-
-        mergeSort(array, 0, array.length - 1);
-
-        for (int v : array) {
-            System.out.println(v);
-        }
-    }
-
     public static void mergeSort(int[] array, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
@@ -50,6 +40,16 @@ class MergeSort {
 
         while (j < rl) {
             array[k++] = R[j++];
+        }
+    }
+
+    private void solve() {
+        int[] array = {230, 10, 60, 550, 40, 220, 20};
+
+        mergeSort(array, 0, array.length - 1);
+
+        for (int v : array) {
+            System.out.println(v);
         }
     }
 }

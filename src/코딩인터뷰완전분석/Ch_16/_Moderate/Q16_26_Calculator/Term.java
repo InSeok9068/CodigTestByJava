@@ -11,18 +11,6 @@ public class Term {
         operator = op;
     }
 
-    public double getNumber() {
-        return value;
-    }
-
-    public Operator getOperator() {
-        return operator;
-    }
-
-    public void setNumber(double v) {
-        value = v;
-    }
-
     public static ArrayList<Term> parseTermSequence(String sequence) {
         ArrayList<Term> terms = new ArrayList<Term>();
         int offset = 0;
@@ -68,5 +56,17 @@ public class Term {
             offset++;
         }
         return Integer.parseInt(sb.toString());
+    }
+
+    public double getNumber() {
+        return value;
+    }
+
+    public void setNumber(double v) {
+        value = v;
+    }
+
+    public Operator getOperator() {
+        return operator;
     }
 }

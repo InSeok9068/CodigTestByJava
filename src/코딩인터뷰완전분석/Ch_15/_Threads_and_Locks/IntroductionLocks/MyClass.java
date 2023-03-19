@@ -9,9 +9,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MyClass extends Thread {
     private final NoLockATM noLockATM;
     private final LockedATM lockedATM;
-    public int delta = 0;
-
     private final Lock completionLock;
+    public int delta = 0;
 
     public MyClass(NoLockATM atm1, LockedATM atm2) {
         noLockATM = atm1;

@@ -18,6 +18,17 @@ public class Question {
         trieList = new Trie[maxWordLength];
     }
 
+    // Test harness.
+    public static void main(String[] args) {
+        Question dict = new Question(AssortedMethods.getListOfWords());
+        Rectangle rect = dict.maxRectangle();
+        if (rect != null) {
+            rect.print();
+        } else {
+            System.out.println("No rectangle exists");
+        }
+    }
+
     /* This function finds a rectangle of letters of the largest
      * possible area (length x breadth) such that every row forms a
      * word (reading left to right) from the list and every column
@@ -65,7 +76,6 @@ public class Question {
         return makePartialRectangle(length, height, new Rectangle(length));
     }
 
-
     /* This function recursively tries to form a rectangle with words
      * of length l from the dictionary as rows and words of length h
      * from the dictionary as columns. To do so, we start with an empty
@@ -105,17 +115,6 @@ public class Question {
             }
         }
         return null;
-    }
-
-    // Test harness.
-    public static void main(String[] args) {
-        Question dict = new Question(AssortedMethods.getListOfWords());
-        Rectangle rect = dict.maxRectangle();
-        if (rect != null) {
-            rect.print();
-        } else {
-            System.out.println("No rectangle exists");
-        }
     }
 
 

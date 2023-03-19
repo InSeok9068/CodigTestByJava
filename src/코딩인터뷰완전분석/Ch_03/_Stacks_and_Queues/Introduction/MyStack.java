@@ -3,19 +3,6 @@ package 코딩인터뷰완전분석.Ch_03._Stacks_and_Queues.Introduction;
 import java.util.EmptyStackException;
 
 public class MyStack<T> {
-    private static class StackNode<T> {
-        private final T data;
-        private StackNode<T> next;
-
-        public StackNode(T data) {
-            this.data = data;
-        }
-
-        public T getData() {
-            return data;
-        }
-    }
-
     private StackNode<T> top;
 
     public T pop() {
@@ -38,5 +25,18 @@ public class MyStack<T> {
 
     public boolean isEmpty() {
         return top == null;
+    }
+
+    private static class StackNode<T> {
+        private final T data;
+        private StackNode<T> next;
+
+        public StackNode(T data) {
+            this.data = data;
+        }
+
+        public T getData() {
+            return data;
+        }
     }
 }

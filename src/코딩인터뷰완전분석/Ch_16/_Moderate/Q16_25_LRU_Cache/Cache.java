@@ -5,8 +5,8 @@ import java.util.HashMap;
 public class Cache {
     private final int maxCacheSize;
     private final HashMap<Integer, LinkedListNode> map = new HashMap<Integer, LinkedListNode>();
-    private LinkedListNode listHead = null;
     public LinkedListNode listTail = null;
+    private LinkedListNode listHead = null;
 
 
     public Cache(int maxSize) {
@@ -92,10 +92,10 @@ public class Cache {
     }
 
     private class LinkedListNode {
-        private LinkedListNode next;
-        private LinkedListNode prev;
         public int key;
         public String value;
+        private LinkedListNode next;
+        private LinkedListNode prev;
 
         public LinkedListNode(int k, String v) {
             key = k;

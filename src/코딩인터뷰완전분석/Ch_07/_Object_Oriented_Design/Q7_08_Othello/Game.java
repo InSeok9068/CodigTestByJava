@@ -1,8 +1,8 @@
 package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_08_Othello;
 
 public class Game {
-    private final Player[] players;
     private static Game instance;
+    private final Player[] players;
     private final Board board;
     private final int ROWS = 10;
     private final int COLUMNS = 10;

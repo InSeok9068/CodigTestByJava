@@ -1,9 +1,9 @@
 package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_10_Minesweeper;
 
 public class UserPlay {
+    private final boolean isGuess;
     private int row;
     private int column;
-    private final boolean isGuess;
 
     private UserPlay(int r, int c, boolean guess) {
         setRow(r);

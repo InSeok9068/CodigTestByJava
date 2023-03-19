@@ -3,10 +3,6 @@ package 코딩인터뷰완전분석.Ch_04._Trees_and_Graphs.Q4_01_Route_Between_
 import java.util.LinkedList;
 
 public class Question {
-    public enum State {
-        Unvisited, Visited, Visiting
-    }
-
     public static void main(String[] a) {
         Graph g = createNewGraph();
         Node[] n = g.getNodes();
@@ -62,5 +58,9 @@ public class Question {
             }
         }
         return false;
+    }
+
+    public enum State {
+        Unvisited, Visited, Visiting
     }
 }

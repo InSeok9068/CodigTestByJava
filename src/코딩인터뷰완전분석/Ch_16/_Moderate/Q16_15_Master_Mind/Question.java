@@ -1,6 +1,8 @@
 package 코딩인터뷰완전분석.Ch_16._Moderate.Q16_15_Master_Mind;
 
 public class Question {
+    public static int MAX_COLORS = 4;
+
     public static int code(char c) {
         switch (c) {
             case 'B':
@@ -30,8 +32,6 @@ public class Question {
                 return '0';
         }
     }
-
-    public static int MAX_COLORS = 4;
 
     public static Result estimate(String guess, String solution) {
         if (guess.length() != solution.length()) return null;

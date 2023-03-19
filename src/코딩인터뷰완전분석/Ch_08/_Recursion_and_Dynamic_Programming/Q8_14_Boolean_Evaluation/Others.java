@@ -3,16 +3,6 @@ package 코딩인터뷰완전분석.Ch_08._Recursion_and_Dynamic_Programming.Q8_
 import java.util.HashMap;
 
 public class Others {
-    public enum Term {
-        True,
-        False,
-        And,
-        Or,
-        Xor,
-        LeftParen,
-        RightParen
-    }
-
     public static String reduce(String expression, int start, int end) {
         if (start == end) {
             if (expression.charAt(start) == '1') {
@@ -317,6 +307,16 @@ public class Others {
         System.out.println(countDP(terms, result, 0, terms.length() - 1, new HashMap<String, Integer>()));
         System.out.println(countDPEff(terms, result, 0, terms.length() - 1, new HashMap<String, Integer>()));
 
+    }
+
+    public enum Term {
+        True,
+        False,
+        And,
+        Or,
+        Xor,
+        LeftParen,
+        RightParen
     }
 
 }
