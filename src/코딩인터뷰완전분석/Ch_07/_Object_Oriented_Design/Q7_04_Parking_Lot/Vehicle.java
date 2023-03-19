@@ -1,23 +1,23 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
 import java.util.ArrayList;
 
 public abstract class Vehicle {
-    protected ArrayList<Q7_04_Parking_Lot.ParkingSpot> parkingSpots = new ArrayList<Q7_04_Parking_Lot.ParkingSpot>();
+    protected ArrayList<ParkingSpot> parkingSpots = new ArrayList<ParkingSpot>();
     protected String licensePlate;
     protected int spotsNeeded;
-    protected Q7_04_Parking_Lot.VehicleSize size;
+    protected VehicleSize size;
 
     public int getSpotsNeeded() {
         return spotsNeeded;
     }
 
-    public Q7_04_Parking_Lot.VehicleSize getSize() {
+    public VehicleSize getSize() {
         return size;
     }
 
     /* Park vehicle in this spot (among others, potentially) */
-    public void parkInSpot(Q7_04_Parking_Lot.ParkingSpot spot) {
+    public void parkInSpot(ParkingSpot spot) {
         parkingSpots.add(spot);
     }
 
@@ -29,7 +29,7 @@ public abstract class Vehicle {
         parkingSpots.clear();
     }
 
-    public abstract boolean canFitInSpot(Q7_04_Parking_Lot.ParkingSpot spot);
+    public abstract boolean canFitInSpot(ParkingSpot spot);
 
     public abstract void print();
 }

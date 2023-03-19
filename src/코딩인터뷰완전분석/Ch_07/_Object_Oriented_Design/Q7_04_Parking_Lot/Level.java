@@ -1,27 +1,27 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
 /* Represents a level in a parking garage */
 public class Level {
     private final int floor;
-    private final Q7_04_Parking_Lot.ParkingSpot[] spots;
+    private final ParkingSpot[] spots;
     private int availableSpots = 0; // number of free spots
     private static final int SPOTS_PER_ROW = 10;
 
     public Level(int flr, int numberSpots) {
         floor = flr;
-        spots = new Q7_04_Parking_Lot.ParkingSpot[numberSpots];
+        spots = new ParkingSpot[numberSpots];
         int largeSpots = numberSpots / 4;
         int bikeSpots = numberSpots / 4;
         int compactSpots = numberSpots - largeSpots - bikeSpots;
         for (int i = 0; i < numberSpots; i++) {
-            Q7_04_Parking_Lot.VehicleSize sz = Q7_04_Parking_Lot.VehicleSize.Motorcycle;
+            VehicleSize sz = VehicleSize.Motorcycle;
             if (i < largeSpots) {
-                sz = Q7_04_Parking_Lot.VehicleSize.Large;
+                sz = VehicleSize.Large;
             } else if (i < largeSpots + compactSpots) {
-                sz = Q7_04_Parking_Lot.VehicleSize.Compact;
+                sz = VehicleSize.Compact;
             }
             int row = i / SPOTS_PER_ROW;
-            spots[i] = new Q7_04_Parking_Lot.ParkingSpot(this, row, i, sz);
+            spots[i] = new ParkingSpot(this, row, i, sz);
         }
         availableSpots = numberSpots;
     }
@@ -31,7 +31,7 @@ public class Level {
     }
 
     /* Try to find a place to park this vehicle. Return false if failed. */
-    public boolean parkVehicle(Q7_04_Parking_Lot.Vehicle vehicle) {
+    public boolean parkVehicle(Vehicle vehicle) {
         if (availableSpots() < vehicle.getSpotsNeeded()) {
             return false;
         }
@@ -43,7 +43,7 @@ public class Level {
     }
 
     /* Park a vehicle starting at the spot spotNumber, and continuing until vehicle.spotsNeeded. */
-    private boolean parkStartingAtSpot(int spotNumber, Q7_04_Parking_Lot.Vehicle vehicle) {
+    private boolean parkStartingAtSpot(int spotNumber, Vehicle vehicle) {
         vehicle.clearSpots();
         boolean success = true;
         for (int i = spotNumber; i < spotNumber + vehicle.spotsNeeded; i++) {
@@ -54,12 +54,12 @@ public class Level {
     }
 
     /* find a spot to park this vehicle. Return index of spot, or -1 on failure. */
-    private int findAvailableSpots(Q7_04_Parking_Lot.Vehicle vehicle) {
+    private int findAvailableSpots(Vehicle vehicle) {
         int spotsNeeded = vehicle.getSpotsNeeded();
         int lastRow = -1;
         int spotsFound = 0;
         for (int i = 0; i < spots.length; i++) {
-            Q7_04_Parking_Lot.ParkingSpot spot = spots[i];
+            ParkingSpot spot = spots[i];
             if (lastRow != spot.getRow()) {
                 spotsFound = 0;
                 lastRow = spot.getRow();
@@ -79,7 +79,7 @@ public class Level {
     public void print() {
         int lastRow = -1;
         for (int i = 0; i < spots.length; i++) {
-            Q7_04_Parking_Lot.ParkingSpot spot = spots[i];
+            ParkingSpot spot = spots[i];
             if (spot.getRow() != lastRow) {
                 System.out.print("  ");
                 lastRow = spot.getRow();

@@ -1,4 +1,4 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -19,21 +19,21 @@ public class UserManager {
 
     public void addUser(User fromUser, String toAccountName) {
         User toUser = usersByAccountName.get(toAccountName);
-        Q7_07_Chat_Server.AddRequest req = new Q7_07_Chat_Server.AddRequest(fromUser, toUser, new Date());
+        AddRequest req = new AddRequest(fromUser, toUser, new Date());
         toUser.receivedAddRequest(req);
         fromUser.sentAddRequest(req);
     }
 
-    public void approveAddRequest(Q7_07_Chat_Server.AddRequest req) {
-        req.status = Q7_07_Chat_Server.RequestStatus.Accepted;
+    public void approveAddRequest(AddRequest req) {
+        req.status = RequestStatus.Accepted;
         User from = req.getFromUser();
         User to = req.getToUser();
         from.addContact(to);
         to.addContact(from);
     }
 
-    public void rejectAddRequest(Q7_07_Chat_Server.AddRequest req) {
-        req.status = Q7_07_Chat_Server.RequestStatus.Rejected;
+    public void rejectAddRequest(AddRequest req) {
+        req.status = RequestStatus.Rejected;
         User from = req.getFromUser();
         User to = req.getToUser();
         from.removeAddRequest(req);
@@ -43,7 +43,7 @@ public class UserManager {
     public void userSignedOn(String accountName) {
         User user = usersByAccountName.get(accountName);
         if (user != null) {
-            user.setStatus(new Q7_07_Chat_Server.UserStatus(Q7_07_Chat_Server.UserStatusType.Available, ""));
+            user.setStatus(new UserStatus(UserStatusType.Available, ""));
             onlineUsers.put(user.getId(), user);
         }
     }
@@ -51,7 +51,7 @@ public class UserManager {
     public void userSignedOff(String accountName) {
         User user = usersByAccountName.get(accountName);
         if (user != null) {
-            user.setStatus(new Q7_07_Chat_Server.UserStatus(Q7_07_Chat_Server.UserStatusType.Offline, ""));
+            user.setStatus(new UserStatus(UserStatusType.Offline, ""));
             onlineUsers.remove(user.getId());
         }
     }

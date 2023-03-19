@@ -1,12 +1,12 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
-public class Motorcycle extends Q7_04_Parking_Lot.Vehicle {
+public class Motorcycle extends Vehicle {
     public Motorcycle() {
         spotsNeeded = 1;
-        size = Q7_04_Parking_Lot.VehicleSize.Motorcycle;
+        size = VehicleSize.Motorcycle;
     }
 
-    public boolean canFitInSpot(Q7_04_Parking_Lot.ParkingSpot spot) {
+    public boolean canFitInSpot(ParkingSpot spot) {
         return true;
     }
 

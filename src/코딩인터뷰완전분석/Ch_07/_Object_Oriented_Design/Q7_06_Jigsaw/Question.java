@@ -1,4 +1,4 @@
-package Q7_06_Jigsaw;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_06_Jigsaw;
 
 import java.util.LinkedList;
 import java.util.Random;
@@ -6,30 +6,30 @@ import java.util.Random;
 public class Question {
 
 
-    public static Q7_06_Jigsaw.Edge createRandomEdge(String code) {
+    public static Edge createRandomEdge(String code) {
         Random random = new Random();
-        Q7_06_Jigsaw.Shape type = Q7_06_Jigsaw.Shape.INNER;
+        Shape type = Shape.INNER;
         if (random.nextBoolean()) {
-            type = Q7_06_Jigsaw.Shape.OUTER;
+            type = Shape.OUTER;
         }
-        return new Q7_06_Jigsaw.Edge(type, code);
+        return new Edge(type, code);
     }
 
-    public static Q7_06_Jigsaw.Edge[] createEdges(Piece[][] puzzle, int column, int row) {
+    public static Edge[] createEdges(Piece[][] puzzle, int column, int row) {
         String key = column + ":" + row + ":";
         /* Get left edge */
-        Q7_06_Jigsaw.Edge left = column == 0 ? new Q7_06_Jigsaw.Edge(Q7_06_Jigsaw.Shape.FLAT, key + "h|e") : puzzle[row][column - 1].getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.RIGHT)._createMatchingEdge();
+        Edge left = column == 0 ? new Edge(Shape.FLAT, key + "h|e") : puzzle[row][column - 1].getEdgeWithOrientation(Orientation.RIGHT)._createMatchingEdge();
 
         /* Get top edge */
-        Q7_06_Jigsaw.Edge top = row == 0 ? new Q7_06_Jigsaw.Edge(Q7_06_Jigsaw.Shape.FLAT, key + "v|e") : puzzle[row - 1][column].getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.BOTTOM)._createMatchingEdge();
+        Edge top = row == 0 ? new Edge(Shape.FLAT, key + "v|e") : puzzle[row - 1][column].getEdgeWithOrientation(Orientation.BOTTOM)._createMatchingEdge();
 
         /* Get right edge */
-        Q7_06_Jigsaw.Edge right = column == puzzle[row].length - 1 ? new Q7_06_Jigsaw.Edge(Q7_06_Jigsaw.Shape.FLAT, key + "h|e") : createRandomEdge(key + "h");
+        Edge right = column == puzzle[row].length - 1 ? new Edge(Shape.FLAT, key + "h|e") : createRandomEdge(key + "h");
 
         /* Get bottom edge */
-        Q7_06_Jigsaw.Edge bottom = row == puzzle.length - 1 ? new Q7_06_Jigsaw.Edge(Q7_06_Jigsaw.Shape.FLAT, key + "v|e") : createRandomEdge(key + "v");
+        Edge bottom = row == puzzle.length - 1 ? new Edge(Shape.FLAT, key + "v|e") : createRandomEdge(key + "v");
 
-        Q7_06_Jigsaw.Edge[] edges = {left, top, right, bottom};
+        Edge[] edges = {left, top, right, bottom};
         return edges;
     }
 
@@ -38,7 +38,7 @@ public class Question {
         Piece[][] puzzle = new Piece[size][size];
         for (int row = 0; row < size; row++) {
             for (int column = 0; column < size; column++) {
-                Q7_06_Jigsaw.Edge[] edges = createEdges(puzzle, column, row);
+                Edge[] edges = createEdges(puzzle, column, row);
                 puzzle[row][column] = new Piece(edges);
             }
         }
@@ -84,25 +84,25 @@ public class Question {
                 if (piece == null) return false;
                 if (c > 0) { /* match left */
                     Piece left = solution[r][c - 1];
-                    if (!left.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.RIGHT).fitsWith(piece.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.LEFT))) {
+                    if (!left.getEdgeWithOrientation(Orientation.RIGHT).fitsWith(piece.getEdgeWithOrientation(Orientation.LEFT))) {
                         return false;
                     }
                 }
                 if (c < solution[r].length - 1) { /* match right */
                     Piece right = solution[r][c + 1];
-                    if (!right.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.LEFT).fitsWith(piece.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.RIGHT))) {
+                    if (!right.getEdgeWithOrientation(Orientation.LEFT).fitsWith(piece.getEdgeWithOrientation(Orientation.RIGHT))) {
                         return false;
                     }
                 }
                 if (r > 0) { /* match top */
                     Piece top = solution[r - 1][c];
-                    if (!top.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.BOTTOM).fitsWith(piece.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.TOP))) {
+                    if (!top.getEdgeWithOrientation(Orientation.BOTTOM).fitsWith(piece.getEdgeWithOrientation(Orientation.TOP))) {
                         return false;
                     }
                 }
                 if (r < solution.length - 1) { /* match bottom */
                     Piece bottom = solution[r + 1][c];
-                    if (!bottom.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.TOP).fitsWith(piece.getEdgeWithOrientation(Q7_06_Jigsaw.Orientation.BOTTOM))) {
+                    if (!bottom.getEdgeWithOrientation(Orientation.TOP).fitsWith(piece.getEdgeWithOrientation(Orientation.BOTTOM))) {
                         return false;
                     }
                 }
@@ -113,7 +113,7 @@ public class Question {
 
     public static boolean testSize(int size) {
         LinkedList<Piece> pieces = initializePuzzle(size);
-        Q7_06_Jigsaw.Puzzle puzzle = new Q7_06_Jigsaw.Puzzle(size, pieces);
+        Puzzle puzzle = new Puzzle(size, pieces);
         puzzle.solve();
         Piece[][] solution = puzzle.getCurrentSolution();
         System.out.println(solutionToString(solution));

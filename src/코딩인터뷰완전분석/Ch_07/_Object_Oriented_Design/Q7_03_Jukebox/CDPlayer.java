@@ -1,38 +1,38 @@
-package Q7_03_Jukebox;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_03_Jukebox;
 
 public class CDPlayer {
-    private Q7_03_Jukebox.Playlist p;
-    private Q7_03_Jukebox.CD c;
+    private Playlist p;
+    private CD c;
 
-    public Q7_03_Jukebox.Playlist getPlaylist() {
+    public Playlist getPlaylist() {
         return p;
     }
 
-    public void setPlaylist(Q7_03_Jukebox.Playlist p) {
+    public void setPlaylist(Playlist p) {
         this.p = p;
     }
 
-    public Q7_03_Jukebox.CD getCD() {
+    public CD getCD() {
         return c;
     }
 
-    public void setCD(Q7_03_Jukebox.CD c) {
+    public void setCD(CD c) {
         this.c = c;
     }
 
-    public CDPlayer(Q7_03_Jukebox.Playlist p) {
+    public CDPlayer(Playlist p) {
         this.p = p;
     }
 
-    public CDPlayer(Q7_03_Jukebox.CD c, Q7_03_Jukebox.Playlist p) {
+    public CDPlayer(CD c, Playlist p) {
         this.p = p;
         this.c = c;
     }
 
-    public CDPlayer(Q7_03_Jukebox.CD c) {
+    public CDPlayer(CD c) {
         this.c = c;
     }
 
-    public void playSong(Q7_03_Jukebox.Song s) {
+    public void playSong(Song s) {
     }
 }

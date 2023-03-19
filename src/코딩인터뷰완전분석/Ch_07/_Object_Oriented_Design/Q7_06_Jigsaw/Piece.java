@@ -1,30 +1,30 @@
-package Q7_06_Jigsaw;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_06_Jigsaw;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class Piece {
     private final static int NUMBER_OF_EDGES = 4;
-    private HashMap<Orientation, Q7_06_Jigsaw.Edge> edges = new HashMap<Orientation, Q7_06_Jigsaw.Edge>();
+    private HashMap<Orientation, Edge> edges = new HashMap<Orientation, Edge>();
 
-    public Piece(Q7_06_Jigsaw.Edge[] edgeList) {
+    public Piece(Edge[] edgeList) {
         Orientation[] orientations = Orientation.values();
         for (int i = 0; i < edgeList.length; i++) {
-            Q7_06_Jigsaw.Edge edge = edgeList[i];
+            Edge edge = edgeList[i];
             edge.setParentPiece(this);
             edges.put(orientations[i], edge);
         }
     }
 
     /* Set this edge in the appropriate orientation, rotating the piece as necessary. */
-    public void setEdgeAsOrientation(Q7_06_Jigsaw.Edge edge, Orientation orientation) {
+    public void setEdgeAsOrientation(Edge edge, Orientation orientation) {
         Orientation currentOrientation = getOrientation(edge);
         rotateEdgesBy(orientation.ordinal() - currentOrientation.ordinal());
     }
 
     /* Return the current orientation of the edge. */
-    private Orientation getOrientation(Q7_06_Jigsaw.Edge edge) {
-        for (Entry<Orientation, Q7_06_Jigsaw.Edge> entry : edges.entrySet()) {
+    private Orientation getOrientation(Edge edge) {
+        for (Entry<Orientation, Edge> entry : edges.entrySet()) {
             if (entry.getValue() == edge) {
                 return entry.getKey();
             }
@@ -35,7 +35,7 @@ public class Piece {
     /* Rotate edges by "numberRotations". */
     public void rotateEdgesBy(int numberRotations) {
         Orientation[] orientations = Orientation.values();
-        HashMap<Orientation, Q7_06_Jigsaw.Edge> rotated = new HashMap<Orientation, Q7_06_Jigsaw.Edge>();
+        HashMap<Orientation, Edge> rotated = new HashMap<Orientation, Edge>();
 
         numberRotations = numberRotations % NUMBER_OF_EDGES;
         if (numberRotations < 0) numberRotations += NUMBER_OF_EDGES;
@@ -54,7 +54,7 @@ public class Piece {
         for (int i = 0; i < orientations.length; i++) {
             Shape current = edges.get(orientations[i]).getShape();
             Shape next = edges.get(orientations[(i + 1) % NUMBER_OF_EDGES]).getShape();
-            if (current == Q7_06_Jigsaw.Shape.FLAT && next == Q7_06_Jigsaw.Shape.FLAT) {
+            if (current == Shape.FLAT && next == Shape.FLAT) {
                 return true;
             }
         }
@@ -65,7 +65,7 @@ public class Piece {
     public boolean isBorder() {
         Orientation[] orientations = Orientation.values();
         for (int i = 0; i < orientations.length; i++) {
-            if (edges.get(orientations[i]).getShape() == Q7_06_Jigsaw.Shape.FLAT) {
+            if (edges.get(orientations[i]).getShape() == Shape.FLAT) {
                 return true;
             }
         }
@@ -73,13 +73,13 @@ public class Piece {
     }
 
     /* Get edge at this orientation. */
-    public Q7_06_Jigsaw.Edge getEdgeWithOrientation(Orientation orientation) {
+    public Edge getEdgeWithOrientation(Orientation orientation) {
         return edges.get(orientation);
     }
 
     /* Return the edge that matches targetEdge. Returns null if there is no match. */
-    public Q7_06_Jigsaw.Edge getMatchingEdge(Q7_06_Jigsaw.Edge targetEdge) {
-        for (Q7_06_Jigsaw.Edge e : edges.values()) {
+    public Edge getMatchingEdge(Edge targetEdge) {
+        for (Edge e : edges.values()) {
             if (targetEdge.fitsWith(e)) {
                 return e;
             }

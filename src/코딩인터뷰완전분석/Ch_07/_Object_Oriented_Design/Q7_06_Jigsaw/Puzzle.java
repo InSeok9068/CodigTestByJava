@@ -1,4 +1,4 @@
-package Q7_06_Jigsaw;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_06_Jigsaw;
 
 import java.util.LinkedList;
 
@@ -31,10 +31,10 @@ public class Puzzle {
 
         Orientation[] orientations = Orientation.values();
         for (int i = 0; i < orientations.length; i++) {
-            Q7_06_Jigsaw.Edge current = piece.getEdgeWithOrientation(orientations[i]);
-            Q7_06_Jigsaw.Edge next = piece.getEdgeWithOrientation(orientations[(i + 1) % orientations.length]);
-            if (current.getShape() == Q7_06_Jigsaw.Shape.FLAT && next.getShape() == Q7_06_Jigsaw.Shape.FLAT) {
-                piece.setEdgeAsOrientation(current, Q7_06_Jigsaw.Orientation.LEFT);
+            Edge current = piece.getEdgeWithOrientation(orientations[i]);
+            Edge next = piece.getEdgeWithOrientation(orientations[(i + 1) % orientations.length]);
+            if (current.getShape() == Shape.FLAT && next.getShape() == Shape.FLAT) {
+                piece.setEdgeAsOrientation(current, Orientation.LEFT);
                 return;
             }
         }
@@ -46,9 +46,9 @@ public class Puzzle {
     }
 
     /* Given a list of pieces, check if any have an edge that matches this piece. Return the edge*/
-    private Q7_06_Jigsaw.Edge getMatchingEdge(Q7_06_Jigsaw.Edge targetEdge, LinkedList<Piece> pieces) {
+    private Edge getMatchingEdge(Edge targetEdge, LinkedList<Piece> pieces) {
         for (Piece piece : pieces) {
-            Q7_06_Jigsaw.Edge matchingEdge = piece.getMatchingEdge(targetEdge);
+            Edge matchingEdge = piece.getMatchingEdge(targetEdge);
             if (matchingEdge != null) {
                 return matchingEdge;
             }
@@ -57,7 +57,7 @@ public class Puzzle {
     }
 
     /* Put the edge/piece into the solution, turn it appropriately, and remove from list. */
-    private void setEdgeInSolution(LinkedList<Piece> pieces, Q7_06_Jigsaw.Edge edge, int row, int column, Orientation orientation) {
+    private void setEdgeInSolution(LinkedList<Piece> pieces, Edge edge, int row, int column, Orientation orientation) {
         Piece piece = edge.getParentPiece();
         piece.setEdgeAsOrientation(edge, orientation);
         pieces.remove(piece);
@@ -84,14 +84,14 @@ public class Puzzle {
         } else {
             /* Get the right edge and list to match. */
             Piece pieceToMatch = column == 0 ? solution[row - 1][0] : solution[row][column - 1];
-            Q7_06_Jigsaw.Orientation orientationToMatch = column == 0 ? Q7_06_Jigsaw.Orientation.BOTTOM : Q7_06_Jigsaw.Orientation.RIGHT;
-            Q7_06_Jigsaw.Edge edgeToMatch = pieceToMatch.getEdgeWithOrientation(orientationToMatch);
+            Orientation orientationToMatch = column == 0 ? Orientation.BOTTOM : Orientation.RIGHT;
+            Edge edgeToMatch = pieceToMatch.getEdgeWithOrientation(orientationToMatch);
 
             /* Get matching edge. */
-            Q7_06_Jigsaw.Edge edge = getMatchingEdge(edgeToMatch, piecesToSearch);
+            Edge edge = getMatchingEdge(edgeToMatch, piecesToSearch);
             if (edge == null) return false; // Can't solve
 
-            Q7_06_Jigsaw.Orientation orientation = orientationToMatch.getOpposite();
+            Orientation orientation = orientationToMatch.getOpposite();
             setEdgeInSolution(piecesToSearch, edge, row, column, orientation);
         }
         return true;

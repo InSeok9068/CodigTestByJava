@@ -1,4 +1,4 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
 public class ParkingLot {
     private final Level[] levels;
@@ -12,7 +12,7 @@ public class ParkingLot {
     }
 
     /* Park the vehicle in a spot (or multiple spots). Return false if failed. */
-    public boolean parkVehicle(Q7_04_Parking_Lot.Vehicle vehicle) {
+    public boolean parkVehicle(Vehicle vehicle) {
         for (int i = 0; i < levels.length; i++) {
             if (levels[i].parkVehicle(vehicle)) {
                 return true;

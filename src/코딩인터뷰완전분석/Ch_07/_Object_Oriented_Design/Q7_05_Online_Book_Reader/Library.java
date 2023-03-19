@@ -1,4 +1,4 @@
-package Q7_05_Online_Book_Reader;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_05_Online_Book_Reader;
 
 import java.util.HashMap;
 

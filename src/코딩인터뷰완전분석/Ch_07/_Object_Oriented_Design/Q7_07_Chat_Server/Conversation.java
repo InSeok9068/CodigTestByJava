@@ -1,17 +1,17 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
 import java.util.ArrayList;
 
 public abstract class Conversation {
     protected ArrayList<User> participants = new ArrayList<User>();
     protected int id;
-    protected ArrayList<Q7_07_Chat_Server.Message> messages = new ArrayList<Q7_07_Chat_Server.Message>();
+    protected ArrayList<Message> messages = new ArrayList<Message>();
 
-    public ArrayList<Q7_07_Chat_Server.Message> getMessages() {
+    public ArrayList<Message> getMessages() {
         return messages;
     }
 
-    public boolean addMessage(Q7_07_Chat_Server.Message m) {
+    public boolean addMessage(Message m) {
         messages.add(m);
         return true;
     }

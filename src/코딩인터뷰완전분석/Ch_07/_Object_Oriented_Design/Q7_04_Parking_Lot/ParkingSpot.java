@@ -1,13 +1,13 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
 public class ParkingSpot {
-    private Q7_04_Parking_Lot.Vehicle vehicle;
-    private final Q7_04_Parking_Lot.VehicleSize spotSize;
+    private Vehicle vehicle;
+    private final VehicleSize spotSize;
     private final int row;
     private final int spotNumber;
     private final Level level;
 
-    public ParkingSpot(Level lvl, int r, int n, Q7_04_Parking_Lot.VehicleSize sz) {
+    public ParkingSpot(Level lvl, int r, int n, VehicleSize sz) {
         level = lvl;
         row = r;
         spotNumber = n;
@@ -20,12 +20,12 @@ public class ParkingSpot {
 
     /* Checks if the spot is big enough for the vehicle (and is available). This compares
      * the SIZE only. It does not check if it has enough spots. */
-    public boolean canFitVehicle(Q7_04_Parking_Lot.Vehicle vehicle) {
+    public boolean canFitVehicle(Vehicle vehicle) {
         return isAvailable() && vehicle.canFitInSpot(this);
     }
 
     /* Park vehicle in this spot. */
-    public boolean park(Q7_04_Parking_Lot.Vehicle v) {
+    public boolean park(Vehicle v) {
         if (!canFitVehicle(v)) {
             return false;
         }
@@ -42,7 +42,7 @@ public class ParkingSpot {
         return spotNumber;
     }
 
-    public Q7_04_Parking_Lot.VehicleSize getSize() {
+    public VehicleSize getSize() {
         return spotSize;
     }
 
@@ -54,11 +54,11 @@ public class ParkingSpot {
 
     public void print() {
         if (vehicle == null) {
-            if (spotSize == Q7_04_Parking_Lot.VehicleSize.Compact) {
+            if (spotSize == VehicleSize.Compact) {
                 System.out.print("c");
-            } else if (spotSize == Q7_04_Parking_Lot.VehicleSize.Large) {
+            } else if (spotSize == VehicleSize.Large) {
                 System.out.print("l");
-            } else if (spotSize == Q7_04_Parking_Lot.VehicleSize.Motorcycle) {
+            } else if (spotSize == VehicleSize.Motorcycle) {
                 System.out.print("m");
             }
         } else {

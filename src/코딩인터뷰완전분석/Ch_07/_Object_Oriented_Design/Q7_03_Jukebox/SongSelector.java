@@ -1,18 +1,18 @@
-package Q7_03_Jukebox;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_03_Jukebox;
 
 
 public class SongSelector {
-    private Q7_03_Jukebox.Song currentSong;
+    private Song currentSong;
 
-    public SongSelector(Q7_03_Jukebox.Song s) {
+    public SongSelector(Song s) {
         currentSong = s;
     }
 
-    public void setSong(Q7_03_Jukebox.Song s) {
+    public void setSong(Song s) {
         currentSong = s;
     }
 
-    public Q7_03_Jukebox.Song getCurrentSong() {
+    public Song getCurrentSong() {
         return currentSong;
     }
 }

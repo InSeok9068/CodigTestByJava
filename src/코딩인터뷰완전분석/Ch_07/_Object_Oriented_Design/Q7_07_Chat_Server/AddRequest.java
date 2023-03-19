@@ -1,4 +1,4 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
 import java.util.Date;
 
@@ -6,16 +6,16 @@ public class AddRequest {
     private final User fromUser;
     private final User toUser;
     private final Date date;
-    Q7_07_Chat_Server.RequestStatus status;
+    RequestStatus status;
 
     public AddRequest(User from, User to, Date date) {
         fromUser = from;
         toUser = to;
         this.date = date;
-        status = Q7_07_Chat_Server.RequestStatus.Unread;
+        status = RequestStatus.Unread;
     }
 
-    public Q7_07_Chat_Server.RequestStatus getStatus() {
+    public RequestStatus getStatus() {
         return status;
     }
 

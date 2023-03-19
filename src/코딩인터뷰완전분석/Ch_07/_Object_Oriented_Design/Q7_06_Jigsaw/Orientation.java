@@ -1,4 +1,4 @@
-package Q7_06_Jigsaw;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_06_Jigsaw;
 
 public enum Orientation {
     LEFT, TOP, RIGHT, BOTTOM; // Should stay in this order

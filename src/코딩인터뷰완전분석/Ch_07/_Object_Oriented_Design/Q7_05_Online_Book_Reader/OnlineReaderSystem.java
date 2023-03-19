@@ -1,20 +1,20 @@
-package Q7_05_Online_Book_Reader;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_05_Online_Book_Reader;
 
 public class OnlineReaderSystem {
-    private final Q7_05_Online_Book_Reader.Library library;
+    private final Library library;
     private final UserManager userManager;
-    private final Q7_05_Online_Book_Reader.Display display;
+    private final Display display;
 
     private Book activeBook;
     private User activeUser;
 
     public OnlineReaderSystem() {
         userManager = new UserManager();
-        library = new Q7_05_Online_Book_Reader.Library();
-        display = new Q7_05_Online_Book_Reader.Display();
+        library = new Library();
+        display = new Display();
     }
 
-    public Q7_05_Online_Book_Reader.Library getLibrary() {
+    public Library getLibrary() {
         return library;
     }
 
@@ -22,7 +22,7 @@ public class OnlineReaderSystem {
         return userManager;
     }
 
-    public Q7_05_Online_Book_Reader.Display getDisplay() {
+    public Display getDisplay() {
         return display;
     }
 

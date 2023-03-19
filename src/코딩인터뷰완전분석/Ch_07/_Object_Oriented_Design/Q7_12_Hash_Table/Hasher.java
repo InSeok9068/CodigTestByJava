@@ -1,4 +1,4 @@
-package Q7_12_Hash_Table;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_12_Hash_Table;
 
 import java.util.ArrayList;
 

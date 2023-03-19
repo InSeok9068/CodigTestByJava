@@ -1,4 +1,4 @@
-package Q7_06_Jigsaw;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_06_Jigsaw;
 
 public class Edge {
     private final Shape shape;
@@ -15,7 +15,7 @@ public class Edge {
     }
 
     public Edge _createMatchingEdge() {
-        if (shape == Q7_06_Jigsaw.Shape.FLAT) return null;
+        if (shape == Shape.FLAT) return null;
         return new Edge(shape.getOpposite(), getCode());
     }
 

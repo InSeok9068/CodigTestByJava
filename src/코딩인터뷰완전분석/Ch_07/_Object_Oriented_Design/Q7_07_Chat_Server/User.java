@@ -1,4 +1,4 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,11 +6,11 @@ import java.util.HashMap;
 
 public class User {
     private final int id;
-    private Q7_07_Chat_Server.UserStatus status = null;
-    private final HashMap<Integer, Q7_07_Chat_Server.PrivateChat> privateChats = new HashMap<Integer, Q7_07_Chat_Server.PrivateChat>();
-    private final ArrayList<Q7_07_Chat_Server.GroupChat> groupChats = new ArrayList<Q7_07_Chat_Server.GroupChat>();
-    private final HashMap<Integer, Q7_07_Chat_Server.AddRequest> receivedAddRequests = new HashMap<Integer, Q7_07_Chat_Server.AddRequest>();
-    private final HashMap<Integer, Q7_07_Chat_Server.AddRequest> sentAddRequests = new HashMap<Integer, Q7_07_Chat_Server.AddRequest>();
+    private UserStatus status = null;
+    private final HashMap<Integer, PrivateChat> privateChats = new HashMap<Integer, PrivateChat>();
+    private final ArrayList<GroupChat> groupChats = new ArrayList<GroupChat>();
+    private final HashMap<Integer, AddRequest> receivedAddRequests = new HashMap<Integer, AddRequest>();
+    private final HashMap<Integer, AddRequest> sentAddRequests = new HashMap<Integer, AddRequest>();
 
     private final HashMap<Integer, User> contacts = new HashMap<Integer, User>();
     private final String accountName;
@@ -23,29 +23,29 @@ public class User {
     }
 
     public boolean sendMessageToUser(User toUser, String content) {
-        Q7_07_Chat_Server.PrivateChat chat = privateChats.get(toUser.getId());
+        PrivateChat chat = privateChats.get(toUser.getId());
         if (chat == null) {
-            chat = new Q7_07_Chat_Server.PrivateChat(this, toUser);
+            chat = new PrivateChat(this, toUser);
             privateChats.put(toUser.getId(), chat);
         }
-        Q7_07_Chat_Server.Message message = new Q7_07_Chat_Server.Message(content, new Date());
+        Message message = new Message(content, new Date());
         return chat.addMessage(message);
     }
 
     public boolean sendMessageToGroupChat(int groupId, String content) {
-        Q7_07_Chat_Server.GroupChat chat = groupChats.get(groupId);
+        GroupChat chat = groupChats.get(groupId);
         if (chat != null) {
-            Q7_07_Chat_Server.Message message = new Q7_07_Chat_Server.Message(content, new Date());
+            Message message = new Message(content, new Date());
             return chat.addMessage(message);
         }
         return false;
     }
 
-    public void setStatus(Q7_07_Chat_Server.UserStatus status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
 
-    public Q7_07_Chat_Server.UserStatus getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
@@ -58,21 +58,21 @@ public class User {
         }
     }
 
-    public void receivedAddRequest(Q7_07_Chat_Server.AddRequest req) {
+    public void receivedAddRequest(AddRequest req) {
         int senderId = req.getFromUser().getId();
         if (!receivedAddRequests.containsKey(senderId)) {
             receivedAddRequests.put(senderId, req);
         }
     }
 
-    public void sentAddRequest(Q7_07_Chat_Server.AddRequest req) {
+    public void sentAddRequest(AddRequest req) {
         int receiverId = req.getFromUser().getId();
         if (!sentAddRequests.containsKey(receiverId)) {
             sentAddRequests.put(receiverId, req);
         }
     }
 
-    public void removeAddRequest(Q7_07_Chat_Server.AddRequest req) {
+    public void removeAddRequest(AddRequest req) {
         if (req.getToUser() == this) {
             receivedAddRequests.remove(req);
         } else if (req.getFromUser() == this) {
@@ -81,15 +81,15 @@ public class User {
     }
 
     public void requestAddUser(String accountName) {
-        Q7_07_Chat_Server.UserManager.getInstance().addUser(this, accountName);
+        UserManager.getInstance().addUser(this, accountName);
     }
 
-    public void addConversation(Q7_07_Chat_Server.PrivateChat conversation) {
+    public void addConversation(PrivateChat conversation) {
         User otherUser = conversation.getOtherParticipant(this);
         privateChats.put(otherUser.getId(), conversation);
     }
 
-    public void addConversation(Q7_07_Chat_Server.GroupChat conversation) {
+    public void addConversation(GroupChat conversation) {
         groupChats.add(conversation);
     }
 

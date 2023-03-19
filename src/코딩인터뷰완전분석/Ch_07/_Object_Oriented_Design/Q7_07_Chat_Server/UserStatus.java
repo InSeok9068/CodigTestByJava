@@ -1,15 +1,15 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
 public class UserStatus {
     private final String message;
-    private final Q7_07_Chat_Server.UserStatusType type;
+    private final UserStatusType type;
 
-    public UserStatus(Q7_07_Chat_Server.UserStatusType type, String message) {
+    public UserStatus(UserStatusType type, String message) {
         this.type = type;
         this.message = message;
     }
 
-    public Q7_07_Chat_Server.UserStatusType getStatusType() {
+    public UserStatusType getStatusType() {
         return type;
     }
 

@@ -1,13 +1,13 @@
-package Q7_04_Parking_Lot;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot;
 
-public class Bus extends Q7_04_Parking_Lot.Vehicle {
+public class Bus extends Vehicle {
     public Bus() {
         spotsNeeded = 5;
-        size = Q7_04_Parking_Lot.VehicleSize.Large;
+        size = VehicleSize.Large;
     }
 
-    public boolean canFitInSpot(Q7_04_Parking_Lot.ParkingSpot spot) {
-        return spot.getSize() == Q7_04_Parking_Lot.VehicleSize.Large;
+    public boolean canFitInSpot(ParkingSpot spot) {
+        return spot.getSize() == VehicleSize.Large;
     }
 
     public void print() {

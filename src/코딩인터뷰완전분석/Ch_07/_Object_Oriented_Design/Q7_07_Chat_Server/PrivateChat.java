@@ -1,6 +1,6 @@
-package Q7_07_Chat_Server;
+package 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_07_Chat_Server;
 
-public class PrivateChat extends Q7_07_Chat_Server.Conversation {
+public class PrivateChat extends Conversation {
     public PrivateChat(User user1, User user2) {
         participants.add(user1);
         participants.add(user2);

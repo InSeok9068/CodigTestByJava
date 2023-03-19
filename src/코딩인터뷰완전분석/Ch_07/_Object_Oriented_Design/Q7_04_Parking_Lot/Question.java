@@ -1,6 +1,7 @@
 package Q7_04_Parking_Lot;
 
 
+import 코딩인터뷰완전분석.Ch_07._Object_Oriented_Design.Q7_04_Parking_Lot.*;
 import 코딩인터뷰완전분석.CtCILibrary.CtCILibrary.AssortedMethods;
 
 public class Question {
@@ -9,18 +10,18 @@ public class Question {
      * @param args
      */
     public static void main(String[] args) {
-        Q7_04_Parking_Lot.ParkingLot lot = new Q7_04_Parking_Lot.ParkingLot();
+        ParkingLot lot = new ParkingLot();
 
-        Q7_04_Parking_Lot.Vehicle v = null;
+        Vehicle v = null;
         while (v == null || lot.parkVehicle(v)) {
             lot.print();
             int r = AssortedMethods.randomIntInRange(0, 10);
             if (r < 2) {
-                v = new Q7_04_Parking_Lot.Bus();
+                v = new Bus();
             } else if (r < 4) {
-                v = new Q7_04_Parking_Lot.Motorcycle();
+                v = new Motorcycle();
             } else {
-                v = new Q7_04_Parking_Lot.Car();
+                v = new Car();
             }
             System.out.print("\nParking a ");
             v.print();
